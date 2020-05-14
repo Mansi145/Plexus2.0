@@ -4,7 +4,10 @@ from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from registration.models import society
 from .models import Event, Question, Score, Rule
-from .serializers import EventSerializer, QuestionSerializer, RuleSerializer, ScoreSerializer
+from .serializers import (
+    EventSerializer, QuestionSerializer,
+    RuleSerializer, ScoreSerializer
+    )
 from rest_framework.permissions import IsAuthenticated
 from utils.permissions import IsPlayer, IsSociety
 from datetime import timedelta
