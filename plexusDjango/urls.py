@@ -28,17 +28,17 @@ urlpatterns = [
         'admin/',
         admin.site.urls),
     path(
-        'api/register/',
+        'registration/',
         include('registration.urls', 'register_api')),
     path(
-        'api/dashboard/',
+        'dashboard/',
         include('events.urls')),
     path(
-        'api/token/',
+        'token/',
         TokenObtainPairView.as_view(),
         name='token_obtain_pair'),
     path(
-        'api/token/refresh/',
+        'token/refresh/',
         TokenRefreshView.as_view(),
         name='token_refresh'),
     url(

@@ -37,19 +37,19 @@ urlpatterns = [
         r'^',
         include(event_router.urls)),
     path(
-        'society_dashboard/',
+        'society-dashboard/',
         SocietyDasboard.as_view(),
         name="societyDashbaord"),
     path(
-        'past_events/',
+        'past-events/',
         PastEventsView.as_view(),
         name="pastEvents"),
     path(
-        'present_events/',
+        'present-events/',
         PresentEventsView.as_view(),
         name="presentEvents"),
     path(
-        'future_events/',
+        'future-events/',
         FutureEventsView.as_view(),
         name="futureEvents"),
     path(
@@ -57,15 +57,15 @@ urlpatterns = [
         Leaderboard.as_view(),
         name="leaderboard"),
     path(
-        'player_dashboard/',
+        'player-dashboard/',
         StartEvent.as_view(),
         name="eventList"),
     path(
-        'player_dashboard/<int:pk>',
+        'player-dashboard/<int:pk>',
         EventDetails.as_view(),
         name="eventDetails"),
     path(
-        'player_dashboard/<int:pk>/play',
+        'player-dashboard/<int:pk>/play',
         QuestionsPlay.as_view(),
         name="questions"),
 ]

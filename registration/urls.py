@@ -6,11 +6,11 @@ app_name = "registration"
 
 urlpatterns = [
     path(
-        'player_register/',
+        'player-register/',
         views.player_registration_view.as_view(),
         name="playerRegister"),
     path(
-        'society_register/',
+        'society-register/',
         views.society_registration_view.as_view(),
         name="societyRegister"),
     path(

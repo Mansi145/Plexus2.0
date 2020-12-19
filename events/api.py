@@ -23,10 +23,6 @@ class EventViewSet(viewsets.ModelViewSet):
         new_society = society.objects.get(user=self.request.user)
         serializer.save(society=new_society)
 
-    # def get_questions(self, obj):
-    #     query = obj.Question.all().order_by('order')
-    #     return QuestionSerializer(query, many=True, read_only=True).data
-
 
 class QuestionViewSet(viewsets.ModelViewSet):
     permission_classes = [IsSociety & IsAuthenticated]
@@ -128,8 +124,8 @@ class PastEventsView(APIView):
     permission_classes = [IsPlayer & IsAuthenticated]
 
     def get(self, request):
-        past = timezone.now() - timedelta(days=1)
-        queryset = Event.objects.filter(end_time__range=["2011-01-01", past])
+        now = timezone.now()
+        queryset = Event.objects.filter(end_time__lt=now)
         serializer = EventSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -138,10 +134,8 @@ class PresentEventsView(APIView):
     permission_classes = [IsPlayer & IsAuthenticated]
 
     def get(self, request):
-        queryset = Event.objects.filter(
-            start_time__range=[
-                timezone.now().date(),
-                timezone.now()])
+        now = timezone.now()
+        queryset = Event.objects.filter(start_time__lte=now, end_time__gte=now)
         serializer = EventSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -150,8 +144,7 @@ class FutureEventsView(APIView):
     permission_classes = [IsPlayer & IsAuthenticated]
 
     def get(self, request):
-        future = timezone.now() + timedelta(days=1)
-        queryset = Event.objects.filter(
-            start_time__range=[future, "2050-01-01"])
+        now = timezone.now()
+        queryset = Event.objects.filter(start_time__gt=now)
         serializer = EventSerializer(queryset, many=True)
         return Response(serializer.data)

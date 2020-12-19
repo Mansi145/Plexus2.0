@@ -46,23 +46,23 @@
 ### API Endpoints:
 
 - `admin/` : Opens admin panel
-- `api/register/player_register/`: Register a player
-- `api/register/society_register/`: Register a society
-- `api/register/login/`: Login for player/society
-- `api/token/`: Returns an access and refresh JSON web token pair
-- `api/token/refresh/`: Returns an access type JSON web token if the refresh token is valid
-- `api/dashboard/society_dashboard/`: Lists all the events under the society
-- `api/dashboard/events/`: Viewset for the event model : <b>Creates event</b>
-- `api/dashboard/events/{pk}/questions`: Viewset for the questions model : <b>Creates question for a specific event pk</b>
-- `api/dashboard/events/{pk}/questions/{pk}`: PUT/PATCH/DELETE for question of specific pk
-- `api/dashboard/events/{pk}/rules/`: Viewset for the rules model : <b>Creates rules for a specific event pk</b>
-- `api/dashboard/events/{pk}/rules/{pk}`: PUT/PATCH/DELETE for rules of specific pk
-- `api/dashboard/past_events/`: Get all past events
-- `api/dashboard/present_events/`: Get all present events
-- `api/dashboard/future_events/`: Get all future events
-- `api/dashboard/player_dashboard/`: Gets a list for all the events
-- `api/dashboard/player_dashboard/{pk}`: Gets all the details for a specific event pk
-- `api/dashboard/player_dashboard/{pk}/play`: Gets the question of a specific event pk
-- `api/dashboard/leaderboard/<int:pk>`: Leaderboard of a specific event
+- `registration/player-register/`: Register a player
+- `registration/society-register/`: Register a society
+- `registration/login/`: Login for player/society
+- `token/`: Returns an access and refresh JSON web token pair
+- `token/refresh/`: Returns an access type JSON web token if the refresh token is valid
+- `dashboard/society-dashboard/`: Lists all the events under the society
+- `dashboard/events/`: Viewset for the event model : <b>Creates event</b>
+- `dashboard/events/{pk}/questions`: Viewset for the questions model : <b>Creates question for a specific event pk</b>
+- `dashboard/events/{pk}/questions/{pk}`: PUT/PATCH/DELETE for question of specific pk
+- `dashboard/events/{pk}/rules/`: Viewset for the rules model : <b>Creates rules for a specific event pk</b>
+- `dashboard/events/{pk}/rules/{pk}`: PUT/PATCH/DELETE for rules of specific pk
+- `dashboard/past-events/`: Get all past events
+- `dashboard/present-events/`: Get all present events
+- `dashboard/future-events/`: Get all future events
+- `dashboard/player-dashboard/`: Gets a list for all the events
+- `dashboard/player-dashboard/{pk}`: Gets all the details for a specific event pk
+- `dashboard/player-dashboard/{pk}/play`: Gets the question of a specific event pk
+- `dashboard/leaderboard/<int:pk>`: Leaderboard of a specific event
 - `/swagger/`: API Documentation using Swagger
 - `/redoc/`: API Documentation using Redoc

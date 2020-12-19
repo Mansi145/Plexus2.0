@@ -1,5 +1,4 @@
 from rest_framework.permissions import BasePermission
-from rest_framework import exceptions
 from registration.models import player, society
 from django.contrib.auth.models import Group
 

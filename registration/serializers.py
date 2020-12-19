@@ -23,10 +23,11 @@ class PlayerRegistrationSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user_data = validated_data.pop('user')
         user_obj = User.objects.create_user(**user_data)
-        Player_obj = player.objects.create(user=user_obj, **validated_data)
-        Group.objects.get(name='Player').user_set.add(user_obj)
-        Player_obj.save()
-        return Player_obj
+        Player = player.objects.create(user=user_obj, **validated_data)
+        users_group = Group.objects.get(name='Player')
+        users_group.user_set.add(user_obj)
+        Player.save()
+        return Player
 
 
 class SocietyRegistrationSerializer(serializers.ModelSerializer):
@@ -39,10 +40,11 @@ class SocietyRegistrationSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user_data = validated_data.pop('user')
         user_obj = User.objects.create_user(**user_data)
-        Society_obj = society.objects.create(user=user_obj, **validated_data)
-        Group.objects.get(name='Society').user_set.add(user_obj)
-        Society_obj.save()
-        return Society_obj
+        Society = society.objects.create(user=user_obj, **validated_data)
+        users_group = Group.objects.get(name='Society')
+        users_group.user_set.add(user_obj)
+        Society.save()
+        return Society
 
 
 class UserLoginSerializer(serializers.ModelSerializer):
