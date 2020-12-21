@@ -81,7 +81,7 @@ class QuestionsPlay(APIView):
 
     def get(self, request, *args, **kwargs):
         event_url = self.kwargs["pk"]
-        player_id = self.request.user.player
+        player_id = self.request.user
         score_play, created = Score.objects.get_or_create(
             player=player_id, event=Event.objects.get(pk=event_url))
         level = score_play.level
